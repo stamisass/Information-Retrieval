@@ -1,0 +1,5 @@
+What causes Down syndrome?
+Ulrike C. Muller
+Down syndrome is caused because of an abnormality characterized by an extra copy of genetic material on all or part of the 21st chromosome.
+Every cell in the body contains genes that are grouped along chromosomes in the cell's nucleus or center. There are normally 46 chromosomes in each cell, 23 inherited from your mother and 23 from your father. When some or all of a person's cells have an extra full or partial copy of chromosome 21, the result is Down syndrome.
+The most common form of Down syndrome is known as Trisomy 21, a condition where individuals have 47 chromosomes in each cell instead of 46. This is caused by an error in cell division called nondisjunction, which leaves a sperm or egg cell with an extra copy of chromosome 21 before or at conception. Trisomy 21 accounts for 95% of Down syndrome cases, with 88% originating from nondisjunction of the mother's egg cell.

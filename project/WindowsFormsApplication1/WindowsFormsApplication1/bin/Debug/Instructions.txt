@@ -1,0 +1,14 @@
+MySearch instructions:
+
+Here is some exaples for using MySearch:
+
+1. If a word exist in two or more documents, MySearch will show all those documents.
+    for example try the word "good", it should find "sailing" and "cancer" documents.
+
+2. AND operation:  try to search "pagani AND zonda".
+
+3. OR operation: try to search "base OR down".
+
+4.Stop list: try to search "from".
+
+5.try to delete the "sailing" document and then try to search the word "good" again, it should find just the "cancer" document.

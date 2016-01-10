@@ -1,0 +1,121 @@
+public class KMPAlgo {
+ 
+    /**
+     * Pre processes the pattern array based on proper prefixes and proper
+     * suffixes at every position of the array
+     * 
+     * @param ptrn
+     *            word that is to be searched in the search string
+     * @return partial match table which indicates
+     */
+    public int[] preProcessPattern(char[] ptrn) {
+        int i = 0, j = -1;
+        int ptrnLen = ptrn.length;
+        int[] b = new int[ptrnLen + 1];
+ 
+        b[i] = j;
+        while (i < ptrnLen) {
+            while (j >= 0 && ptrn[i] != ptrn[j]) {
+                // if there is mismatch consider next widest border
+                j = b[j];
+            }
+            i++;
+            j++;
+            b[i] = j;
+        }
+        // print pettern, partial match table and index
+       // System.out.println("printing pattern, partial match table, and its index");
+       // System.out.print(" ");
+        for (char c : ptrn) {
+            System.out.print(c);
+        }
+      
+        System.out.println(" ");
+        
+        return b;
+    }
+ 
+    /**
+     * Based on the pre processed array, search for the pattern in the text
+     * 
+     * @param text
+     *            text over which search happens
+     * @param ptrn
+     *            pattern that is to be searched
+     */
+    public void searchSubString(char[] text, char[] ptrn) {
+        int i = 0, j = 0;
+        // pattern and text lengths
+        int ptrnLen = ptrn.length;
+        int txtLen = text.length;
+ 
+        // initialize new array and preprocess the pattern
+        int[] b = preProcessPattern(ptrn);
+ 
+        while (i < txtLen) {
+            while (j >= 0 && text[i] != ptrn[j]) {
+            	System.out.println("Mismatch happened, jumping from " + j
+                        + " to " + b[j] + " at text index i at " + i);
+                
+                j = b[j];
+            }
+            i++;
+            j++;
+ 
+            // a match is found
+            if (j == ptrnLen) {
+                System.out.println("FOUND SUBSTRING AT i " + i + " and index:"
+                        + (i - ptrnLen));
+                System.out.println("Setting j from " + j + " to " + b[j]);
+                j = b[j];
+            }
+        }
+    }
+ 
+    // only for test purposes
+    public static void main(String[] args) {
+        KMPAlgo stm = new KMPAlgo();
+        char[] ptrn = "abracadabra".toCharArray(); 
+        char[] text = "brave abrasive abracadabra candelabra".toCharArray();
+      //  System.out.print(" ");
+        for (char c : text) {System.out.print(c);}
+        System.out.println();
+        stm.searchSubString(text, ptrn);
+        System.out.println("--------------------------------------------------------------");
+        
+        ptrn = "aab".toCharArray(); 
+        text = "aaaaaaa".toCharArray();
+      //  System.out.print(" ");
+        for (char c : text) {System.out.print(c);}
+        System.out.println();
+        stm.searchSubString(text, ptrn);
+        System.out.println("--------------------------------------------------------------");
+        
+        ptrn = "xab".toCharArray(); 
+        text = "abcdefg".toCharArray();
+      //  System.out.println(" ");
+        for (char c : text) {System.out.print(c);}
+        System.out.println();
+        stm.searchSubString(text, ptrn);
+        System.out.println("--------------------------------------------------------------");
+        
+        ptrn = "abc".toCharArray(); 
+        text = "abababa".toCharArray();
+      //  System.out.println(" ");
+        for (char c : text) {System.out.print(c);}
+        System.out.println();
+        stm.searchSubString(text, ptrn);
+        System.out.println("--------------------------------------------------------------");
+        
+        
+        ptrn = "sting".toCharArray(); 
+        text = "a string searching example consisting of sample text".toCharArray();
+     //   System.out.print(" ");
+        for (char c : text) {System.out.print(c);}
+        System.out.println();
+        stm.searchSubString(text, ptrn);
+        System.out.println("--------------------------------------------------------------");
+        
+        
+    }
+}
